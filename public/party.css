@@ -1,0 +1,29 @@
+body 
+{
+  font-family: 'Roboto', serif;
+  font-size: 20px;
+}
+
+.party-section 
+{
+   display: block;
+   position: absolute;
+   left: 35%;
+   top:  40%;
+   width:500px;
+   text-align: center;
+}  
+
+.party-section .party-section-inner
+{
+   display:block;
+   background-color: rgba(0, 0, 255, 0.03);
+   padding: 80px;
+}
+
+.switch-label
+{
+   display:inline-block;
+   height: 50px;
+   vertical-align: middle;
+}
