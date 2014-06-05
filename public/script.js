@@ -1,6 +1,6 @@
 var Server = function() {
     this.ip = "192.168.0.148";
-    this.port = "4567";
+    this.port = 1000; // default "4567";
     this.url = "http://" + this.ip + ":" + this.port;
     // send a command to the server to turn the light 'on' or 'off'
     this.toggleLight = function(state) {
