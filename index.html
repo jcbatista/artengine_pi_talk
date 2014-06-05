@@ -44,17 +44,16 @@
 			<div class="slides">
 
 				<section>
-					<p><img src="http://nodejs.org/logo.png" style="padding:40px; border-color:#777"></p>
-					<h2>Broken Promises</h2>
+					<p><img src="logo.png" style=""></p>
+					<h2>Building an Internet Appliance with the Raspberry Pi</h2>
 					<p>
-						<small>A talk on Node.js, asynchronous I/O, Promises and the Raspberry Pi</small> <br>
+						<small>A talk on the Raspberry Pi, the Web and everything else...</small> <br>
 						<small>(not necessarily in that order)</small>
 					</p>
 					<p>
 						<br>
 						<small>by Jean-Claude Batista&nbsp;&nbsp;/<a href="http://twitter.com/jcbatista">@jcbatista</a></small>
 					</p>
-					<p><img src="http://ottawajs.org/logo/OttawaJS.png" style="width:100px;border:0;background:none;box-shadow:none"></p>
 				</section>
 
 				<section>
@@ -94,31 +93,41 @@ echo 7 > /sys/class/gpio/unexport
 						</pre>
 					</p>
 				</section>
-
+				<section>
+					<img src="iot_1.png" />
+				</section>
 				<section>
 					<h3>
-						Using the Pi-GPIO module in Node.js
+						Using the 'pi_piper' Ruby Gem
 					</h3>
 				</section>
 
 				<section>
-					<h2>Node.JS</h2>
+					<h2>Building a 'Light' Web API ...</h2>
+				</section>	
+				<section>
+					<h2>REST API</h2>
+					<p>Representational state transfer (REST)</p>
+					<br>	
 					<p>
-						<img src="http://www.aaronstannard.com/image.axd?picture=nodejs%20for%20dotnet_thumb.png">
+						<ul>
+         				<li>Create => POST</li>
+							<li>Read   => GET</li>
+							<li>Update => PUT </li>
+							<li>Delete => DELETE</li>
+					   </ul>
 					</p>
 				</section>
 
 				<section>
 					<h1>
-						Introducing<br>Party.js
+						Introducing<br>party.rb
 					</h1>
 				</section>
 
 				<section>
-					<p> Paul, the *REAL* question should have been ...</p>
-					<br>
 					<h2>
-						How many Web Developers does it take to stop the party!?
+						How many Open Workshop attendees does it take to stop the party!?
 					</h2>
 					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwwG-UsWwfsain-fKOAlb4L-9b89eFatzN17LVaybkZOgJMkgaHg">
 					</p>
@@ -128,33 +137,6 @@ echo 7 > /sys/class/gpio/unexport
 					<pre>
 curl -H "Content-Type: application/json" -d '{"action":"stop"}' http://192.168.31.161:8080/api/party
 					</pre>
-				</section>
-
-				<section>
-					<h2>
-						Words of Wisdom
-					</h2>
-					
-					<blockquote cite="http://rickgaribay.net/archive/2012/01/28/node-is-not-single-threaded.aspx">
-						&ldquo;This can’t be understated. Writing asynchronous code is hard&rdquo;
-					</blockquote>
-				</section>
-
-
-				<section>
-					<h2>
-						Bottom Line
-					</h2>
-					
-					<p>It's OKAY, to use {mostly} synchronous GPIO calls for your Internet of Things related project<p>
-				</section>
-
-				<section>
-					<h2>
-						But ...
-					</h2>
-					
-					<p>If you go asynchronous all the way, learn how to use Promises ...<p>
 				</section>
 
 				<section>
