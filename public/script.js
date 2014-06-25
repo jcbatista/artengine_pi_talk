@@ -1,3 +1,5 @@
+// ex using curl: curl -X PUT -H "Content-Type: application/json" -d '{"action":"stop"}' http://192.168.0.148:8080/api/party
+//
 var modes = {
               light: { name : "Light", start: "on", stop: "off" },
               party: { name : "Party", start: "start", stop: "stop" }
