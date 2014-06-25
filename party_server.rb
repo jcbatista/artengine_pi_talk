@@ -13,19 +13,9 @@ end
 
 party = Party.new
 
-get '/party/start' do
- party.start
- "You got the party's started!!!"
-end
-
-get '/party/stop' do
- party.stop
- "Party's over!!!"
-end
-
-put '/party' do
+put '/api/party' do
   data = JSON.parse(request.body.read)
-  puts data
+  puts "data: #{data}"
   case data["action"]
     when 'start' 
       party.start

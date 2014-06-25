@@ -4,19 +4,22 @@ var modes = {
             }
 
 var Server = function() {
-    this.ip = "localhost";
+    this.ip = "192.168.0.148";
     this.mode = "party"; // light or party mode 
-    this.port = 1000; // default "4567";
-    this.url = "http://" + this.ip + ":" + this.port;
+    this.port = 8080;    // default "4567";
+
+    this.url = "http://" + this.ip + ":" + this.port + "/api";
     // send a command to the server to turn the light (or the Party, depending on the mode) 'on' or 'off'
     this.toggleLight = function(state) {
-      var cmd = state ? modes[this.mode].start: modes[this.mode].stop;
-      var url = this.url + '/' + this.mode + '/' + cmd;
+      var data = { action: state? modes[this.mode].start: modes[this.mode].stop };
+      var url = this.url + '/' + this.mode;
       console.log('toggleLight called. state=' + state + ' url=' + url);
       $.ajax({
         url: url,
-        type: "GET",
+        type: "PUT",
         dataType: "text",
+        contentType: "application/json",
+        data: JSON.stringify(data)
       }).done(function(data) {
         console.log(data);
       }).fail(function(jqXHR, textStatus) {

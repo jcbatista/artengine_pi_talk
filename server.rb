@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra'
+require 'json'
 require 'pi_piper'
 include PiPiper
 
@@ -15,15 +16,19 @@ pin = PiPiper::Pin.new(:pin => relay_gpio, :direction => :out)
 
 # make sure we start with the light off
 pin.off 
-
-get '/light/on' do
- pin.on 
- "light is turned on!"
-end
-
-get '/light/off' do
- pin.off 
- "light is turned off!"
+put '/api/light' do
+  data = JSON.parse(request.body.read)
+  puts "data: #{data}"
+  case data["action"]
+  when 'on'
+    pin.on 
+    return "Light on!"
+  when 'off'
+    pin.off 
+    return "Light off!"
+  else
+    return 'What do you want?'
+  end
 end
 
 get '/hi' do
