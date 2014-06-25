@@ -4,7 +4,7 @@ var modes = {
             }
 
 var Server = function() {
-    this.ip = "192.168.0.148";
+    this.ip = "localhost";
     this.mode = "party"; // light or party mode 
     this.port = 1000; // default "4567";
     this.url = "http://" + this.ip + ":" + this.port;

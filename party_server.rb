@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'sinatra'
+require 'json'
+
 require_relative 'party.rb' 
 
 relay_gpio = 7
@@ -13,12 +15,27 @@ party = Party.new
 
 get '/party/start' do
  party.start
- "Party's started!!!"
+ "You got the party's started!!!"
 end
 
 get '/party/stop' do
  party.stop
  "Party's over!!!"
+end
+
+put '/party'
+  data = JSON.parse(request.body.read)
+  case data.action
+    when 'start' 
+      party.start
+      return "You got the party's started!!!"
+    when 'stop' 
+      party.stop
+      return "Party's over!!!"
+     else
+      return 'What do you want?'
+  end
+  
 end
 
 get '/hi' do
