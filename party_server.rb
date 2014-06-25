@@ -23,19 +23,19 @@ get '/party/stop' do
  "Party's over!!!"
 end
 
-put '/party'
+put '/party' do
   data = JSON.parse(request.body.read)
-  case data.action
+  puts data
+  case data["action"]
     when 'start' 
       party.start
       return "You got the party's started!!!"
     when 'stop' 
       party.stop
       return "Party's over!!!"
-     else
+    else
       return 'What do you want?'
   end
-  
 end
 
 get '/hi' do
