@@ -5,10 +5,11 @@ var modes = {
               party: { name : "Party", start: "start", stop: "stop" }
             }
 
-var Server = function() {
-    this.ip = "192.168.0.148";
-    this.mode = "party"; // light or party mode 
-    this.port = 8080;    // default "4567";
+var Server = function(ip, port, mode) {
+    
+    this.ip = ip || "192.168.0.148";
+    this.port = port || 8080;    // default "4567"
+    this.mode = mode || "party"; // light or party mode 
 
     this.url = "http://" + this.ip + ":" + this.port + "/api";
     // send a command to the server to turn the light (or the Party, depending on the mode) 'on' or 'off'
@@ -31,7 +32,7 @@ var Server = function() {
     return this;
   }
 
-var server = new Server();
+var server = new Server("192.168.0.148", 8080, "party");
 
 console.log("server url=" + server.url);
 
