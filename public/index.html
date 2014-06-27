@@ -13,6 +13,21 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript">
+    var server = new Server("192.168.0.148", 8080, "light");
+    console.log("server url=" + server.url);
+    $(document).ready(function() {
+      // click handlerr to the on/off switch <= that's just a checkbox
+      var $switch = $('#myonoffswitch');
+      $switch.on('click', function() {
+        var state = $switch.is(':checked');
+        console.log(state);
+        server.toggleLight(state);
+      });
+      // update the switch label depending  on the mode (light or party)
+      $('.switch-label').text(modes[server.mode].name + ' Toggle');
+    });
+  </script>
 </head>
 
 <body>

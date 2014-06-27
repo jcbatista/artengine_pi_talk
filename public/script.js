@@ -31,19 +31,3 @@ var Server = function(ip, port, mode) {
     }
     return this;
   }
-
-var server = new Server("192.168.0.148", 8080, "party");
-
-console.log("server url=" + server.url);
-
-$(document).ready(function() {
-  // click handlerr to the on/off switch <= that's just a checkbox
-  var $switch = $('#myonoffswitch');
-  $switch.on('click', function() {
-    var state = $switch.is(':checked');
-    console.log(state);
-    server.toggleLight(state);
-  });
-  // update the switch label depending  on the mode (light or party)
-  $('.switch-label').text(modes[server.mode].name + ' Toggle');
-});
