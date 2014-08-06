@@ -17,9 +17,6 @@ class SwitchObserver
     puts "count=#{@count}"
   end
 
-  def crap
-    "crap!"
-  end
 end
 
 set :bind, '0.0.0.0' # allow users to connect to the server
@@ -88,7 +85,7 @@ __END__
    .counter 
     {
       margin: auto;
-      width: 65%;
+      width:80%;
       text-align:center;
       background-color:rgba(27, 70, 136, 0.14);
     }
@@ -96,6 +93,7 @@ __END__
     .counter h1 
     {
       font-size: 300px;
+      padding:0 10px;
     }
   </style>
 </head>

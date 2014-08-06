@@ -48,7 +48,7 @@ public
         wait_cycles = wait_cycles + 1 
         print "Paused... "
       elsif wait_state
-        wait_cycles = (wait_cycles + 1) % 50
+        wait_cycles = (wait_cycles + 1) % 100
         wait_state =  wait_cycles != 0 # end wait_state
         if !wait_state
           puts "Ready!" 
@@ -57,7 +57,7 @@ public
       end
       #puts "#{wait_state} #{wait_cycles}"
       previous_value = value
-      sleep 0.005
+      sleep 0.0005
     end
   end
 
