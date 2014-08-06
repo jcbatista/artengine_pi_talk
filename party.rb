@@ -3,6 +3,7 @@ require 'pi_piper'
 include PiPiper
 
 class Party
+
 public
 
   attr_reader :party_state
