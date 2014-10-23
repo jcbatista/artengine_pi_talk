@@ -1,16 +1,28 @@
-var Server = function() {
-    this.ip = "192.168.0.148";
-    this.port = "4567";
-    this.url = "http://" + this.ip + ":" + this.port;
-    // send a command to the server to turn the light 'on' or 'off'
+// ex using curl: curl -X PUT -H "Content-Type: application/json" -d '{"action":"stop"}' http://192.168.0.148:8080/api/party
+//
+var modes = {
+              light: { name : "Light", start: "on", stop: "off" },
+              party: { name : "Party", start: "start", stop: "stop" }
+            }
+
+var Server = function(ip, port, mode) {
+    
+    this.ip = ip || "192.168.0.148";
+    this.port = port || 8080;    // default "4567"
+    this.mode = mode || "party"; // light or party mode 
+
+    this.url = "http://" + this.ip + ":" + this.port + "/api";
+    // send a command to the server to turn the light (or the Party, depending on the mode) 'on' or 'off'
     this.toggleLight = function(state) {
-      var cmd = state ? 'on': 'off';
-      var url = this.url + '/light/' + cmd;
+      var data = { action: state? modes[this.mode].start: modes[this.mode].stop };
+      var url = this.url + '/' + this.mode;
       console.log('toggleLight called. state=' + state + ' url=' + url);
       $.ajax({
         url: url,
-        type: "GET",
+        type: "PUT",
         dataType: "text",
+        contentType: "application/json",
+        data: JSON.stringify(data)
       }).done(function(data) {
         console.log(data);
       }).fail(function(jqXHR, textStatus) {
@@ -19,17 +31,3 @@ var Server = function() {
     }
     return this;
   }
-
-var server = new Server();
-
-console.log("server url=" + server.url);
-
-$(document).ready(function() {
-  // click handlerr to the on/off switch <= that's just a checkbox
-  var $switch = $('#myonoffswitch');
-  $switch.on('click', function() {
-    var state = $switch.is(':checked');
-    console.log(state);
-    server.toggleLight(state);
-  });
-});
