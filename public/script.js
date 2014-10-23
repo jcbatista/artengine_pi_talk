@@ -7,11 +7,12 @@ var modes = {
 
 var Server = function(ip, port, mode) {
     
-    this.ip = ip || "192.168.0.148";
-    this.port = port || 8080;    // default "4567"
+    this.ip = ip || "192.168.0.100";
+    this.port = port || 4567;    // default "4567"
     this.mode = mode || "party"; // light or party mode 
 
     this.url = "http://" + this.ip + ":" + this.port + "/api";
+
     // send a command to the server to turn the light (or the Party, depending on the mode) 'on' or 'off'
     this.toggleLight = function(state) {
       var data = { action: state? modes[this.mode].start: modes[this.mode].stop };

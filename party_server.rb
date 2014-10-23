@@ -13,8 +13,8 @@ def get_public_ipv4
 end
 
 #grab the local IP address
-@my_ip = get_public_ipv4().ip_address()
-puts "Sinatra running at ip=#{@my_ip}, port=#{settings.port}"
+$my_ip = get_public_ipv4().ip_address()
+puts "Sinatra running at ip=#{$my_ip}, port=#{settings.port} ..."
 
 get '/' do
   erb :index
@@ -54,7 +54,7 @@ __END__
   <script type="text/javascript" src="script.js"></script>
 
   <script type="text/javascript">
-    var server = new Server("<%=@my_ip%>", <%=settings.port%>, "party");
+    var server = new Server("<%=$my_ip%>", <%=settings.port%>, "party");
 
     console.log("server url=" + server.url);
 
