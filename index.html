@@ -2,6 +2,10 @@
 <html lang="en">
 
 	<head>
+		<script type="text/javascript">
+			var address	= "192.168.0.100:8080";
+
+		</script>
 		<meta charset="utf-8">
 
 		<title>Building an Internet Appliance with the Raspberry Pi (an Ottawa Ruby talk)</title>
@@ -29,6 +33,21 @@
 				link.href = 'css/print/pdf.css';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
+
+			window.onload=function(){
+				var span; 
+
+				spans = document.querySelectorAll(".address");
+				[].forEach.call(spans, function(span) {
+				  span.innerHTML = address;				  
+				});
+
+			}
+
+			function shout(){
+				var str = document.getElementById("section").innerHTML;
+				alert(str);
+			}
 		</script>
 
 		<!--[if lt IE 9]>
@@ -44,7 +63,7 @@
 			<div class="slides">
 
 				<section>
-					<p><img src="ottawa_ruby_logo.png" style=""></p>
+					<p><img src="ottawa_ruby_logo.png" style="padding: 15px; background-color: 63676b; border: none"></p>
 					<h2>Building an Internet Appliance with the Raspberry Pi</h2>
 					<p>
 						<small>A talk on the Raspberry Pi, the Web and everything else...</small> <br>
@@ -107,25 +126,14 @@ echo 7 > /sys/class/gpio/unexport
 				</section>	
 
 				<section>
-					<h3>
-						URLs
-					</h3>
-					<p>scheme://domain:port/path</p>
-					<br>
-					<pre>
-ex: http://192.168.0.10:1000/light/on
-					</pre>
-				</section>
-
-				<section>
-					<h2>HTTP REST API</h2>
+					<h2>PARTY REST API</h2>
 					<p>Representational state transfer (REST)</p>
 					<br>	
 					<p>
 						<ul>
          				<li>Create => POST</li>
 							<li>Read   => GET</li>
-							<li>Update => PUT </li>
+							<li>Update => PUT</li>
 							<li>Delete => DELETE</li>
 					   </ul>
 					</p>
@@ -138,22 +146,30 @@ ex: http://192.168.0.10:1000/light/on
 				</section>
 
 				<section>
+					<p>Our Party resource will be available at the following
+					url:</p> <p>http://<span class="address">192.168.xxx.yyy:8080</span>/api/party</p>
+				</section>	
+
+				<section>
+					<h2>
+						How many Web Developers does it take to stop a party!?
+					</h2>
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwwG-UsWwfsain-fKOAlb4L-9b89eFatzN17LVaybkZOgJMkgaHg">
+					</p>
+				</section>
+
+				<section>
+					<pre>
+curl -H "Content-Type: application/json" -d '{"action":"stop"}' http://<span class="address">192.168.xxx.yyy:8080</span>/api/party
+					</pre>
+				</section>
+
+				<section>
 					<h1>
 						Bottom Line
 					</h1>
 					
 					<p>We barely scratched the surface of what's possible ...<p>
-				</section>
-
-				<section>
-					<h2>
-						Like he said...
-					</h2>
-					<br>
-					<p>
-A journey of a thousand miles begins with a single step.<p><br>
-  					<p>--Laozi</p>
-
 				</section>
 
 				<section>
