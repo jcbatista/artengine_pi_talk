@@ -1,0 +1,2 @@
+#! /bin/sh
+sudo ruby lightswitch_server.rb -p 8080

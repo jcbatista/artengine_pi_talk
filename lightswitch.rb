@@ -7,6 +7,8 @@ public
   attr_reader :observers
   attr_reader :loop_thread
 
+  @@max_wait = 50
+
   def initialize()
     @observers = []
 
@@ -48,7 +50,7 @@ public
         wait_cycles = wait_cycles + 1 
         print "Paused... "
       elsif wait_state
-        wait_cycles = (wait_cycles + 1) % 100
+        wait_cycles = (wait_cycles + 1) % @@max_wait
         wait_state =  wait_cycles != 0 # end wait_state
         if !wait_state
           puts "Ready!" 

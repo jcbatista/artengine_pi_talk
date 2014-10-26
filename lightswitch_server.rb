@@ -27,9 +27,10 @@ def get_public_ipv4
 end
 
 #grab the local IP address
-@my_ip = get_public_ipv4().ip_address()
-puts "Sinatra running at ip=#{@my_ip}, port=#{settings.port}"
-@url = "http://#{@my_ip}:#{settings.port}/count"
+$my_ip = get_public_ipv4().ip_address()
+
+puts "Sinatra running at ip=#{@my_ip}, port=#{settings.port} ..."
+@url = "http://#{$my_ip}:#{settings.port}/count"
 puts "url=#{@url}"
 
 # monitor sensor
@@ -40,7 +41,6 @@ observer = SwitchObserver.new
 @switch.start
 
 get '/' do
-#"hello world!"
   erb :index
 end
 
@@ -58,10 +58,6 @@ __END__
   <meta charset="utf-8">
   <title>Pi GPIO test</title>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
-<!--
-  <link rel="stylesheet" href="party.css">
-  <link rel="stylesheet" href="onoffswitch.css">
--->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <script type="text/javascript">
