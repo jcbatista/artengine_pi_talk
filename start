@@ -1,0 +1,2 @@
+#! /bin/sh
+sudo ruby party_server.rb -p 8080

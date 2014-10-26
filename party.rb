@@ -3,7 +3,6 @@ require 'pi_piper'
 include PiPiper
 
 class Party
-
 public
 
   attr_reader :party_state
@@ -44,6 +43,9 @@ public
     end 
   end
 
+  def info
+    return {'party' => @party_state, 'light' => @light_state}
+  end
 private
 
   def light_on

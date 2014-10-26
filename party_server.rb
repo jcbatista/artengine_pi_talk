@@ -14,6 +14,7 @@ end
 
 #grab the local IP address
 $my_ip = get_public_ipv4().ip_address()
+
 puts "Sinatra running at ip=#{$my_ip}, port=#{settings.port} ..."
 
 get '/' do
@@ -22,7 +23,11 @@ end
 
 party = Party.new
 
-put '/api/party' do
+get '/api/party' do
+  return party.info.to_json
+end
+
+post '/api/party' do
   data = JSON.parse(request.body.read)
   puts "data: #{data}"
   case data["action"]
