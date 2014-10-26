@@ -49,6 +49,7 @@ __END__
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Pi GPIO test</title>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
 
@@ -78,6 +79,7 @@ __END__
 <body>
    <div class="party-section">
       <div class="party-section-inner">
+         <h3>Ultimate Party App!</h3>
          <div class="switch-label">
             Party Toggle
          </div>

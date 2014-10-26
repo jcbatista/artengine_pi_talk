@@ -20,7 +20,7 @@ var Server = function(ip, port, mode) {
       console.log('toggleLight called. state=' + state + ' url=' + url);
       $.ajax({
         url: url,
-        type: "PUT",
+        type: "POST",
         dataType: "text",
         contentType: "application/json",
         data: JSON.stringify(data)

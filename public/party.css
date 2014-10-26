@@ -9,10 +9,19 @@ body
    display: block;
    position: absolute;
    left: 35%;
-   top:  40%;
-   width:500px;
+   top:  30%;
+   width: 500px;
    text-align: center;
 }  
+
+@media (max-width:400px) {
+  .party-section 
+  {
+    top:  20%;
+    left: 2%;
+    width:300px;
+  }
+}
 
 .party-section .party-section-inner
 {

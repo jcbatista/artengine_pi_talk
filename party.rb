@@ -46,6 +46,7 @@ public
   def info
     return {'party' => @party_state, 'light' => @light_state}
   end
+
 private
 
   def light_on
