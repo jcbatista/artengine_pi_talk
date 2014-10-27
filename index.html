@@ -82,13 +82,50 @@
 				</section>
 
 				<section>
-					<h2>Analog vs Digital IO</h2>
+					<h2>Let's talk GPIOs...</h2>
+					<p>
+						<img src="./raspberry-pi-rev-1-gpio-pin-out1.jpg">
+					</p>
 				</section>
 
 				<section>
-					<h2>First, let's talk GPIOs...</h2>
+					<h2>Analog vs Digital IO</h2>
 					<p>
-						<img src="http://jeffskinnerbox.files.wordpress.com/2012/11/raspberry-pi-rev-1-gpio-pin-out1.jpg?w=530">
+						<img src="./adc.png">
+					</p>
+				</section>
+
+				<section>
+					<h2>IO Voltage Considerations</h2>
+					<p>
+						<table class="reveal">
+							<tr>
+							   <th></th>
+	   						<th>Digital</th>		
+	   						<th>Analog</th>		
+	   					</tr>
+						    <tr>
+						      <td>Raspberry Pi</td>
+						      <td>3.3v</td>
+						      <td></td>
+						    </tr>
+							 <tr>
+						      <td>BeagleBone Black</td>
+						      <td>3.3v</td>
+						      <td>1.8v</td>
+						    </tr>
+							 <tr>
+						      <td>Arduino</td>
+						      <td>5v</td>
+						      <td>5v</td>
+						    </tr>
+					   </table>
+					</p>
+
+					<p>&nbsp;</P>
+
+					<p>
+						Power conversion might require a "level shifter"
 					</p>
 				</section>
 
@@ -154,7 +191,7 @@ echo 7 > /sys/class/gpio/unexport
 					<h2>
 						How many Web Developers does it take to stop a party!?
 					</h2>
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwwG-UsWwfsain-fKOAlb4L-9b89eFatzN17LVaybkZOgJMkgaHg">
+					<img src="./light.png">
 					</p>
 				</section>
 
@@ -175,8 +212,7 @@ curl -H "Content-Type: application/json" -d '{"action":"stop"}' http://<span cla
 				<section>
 					<h1>
 						Fin
-					</h1>
-					
+					</h1>					
 					<p>Thanks for listening!<p>
 				</section>
 
